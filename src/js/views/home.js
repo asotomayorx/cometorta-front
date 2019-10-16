@@ -4,7 +4,7 @@ import "../../styles/home.scss";
 
 export const Home = () => {
 	return (
-		<form>
+		<form  className='container' > 
 			<div className="form-group">
 				<label>Email address</label>
 				<input
