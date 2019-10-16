@@ -6,13 +6,11 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Login } from "./views/login";
 import { Single } from "./views/single";
+import { Campains } from "./views/campains";
 import { Clients } from "./views/clients";
 import { Status } from "./views/status";
 import { OlvidoPassword } from "./views/olvidoPassword";
 import injectContext from "./store/appContext";
-
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 
 //create your first component
 export const Layout = () => {
@@ -24,7 +22,6 @@ export const Layout = () => {
 		<div className="d-flex flex-column h-100">
 			<BrowserRouter>
 				<ScrollToTop>
-					<Navbar />
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route path="/login" component={Login} />
@@ -32,10 +29,10 @@ export const Layout = () => {
 						<Route path="/clients" component={Clients} />
 						<Route path="/status" component={Status} />
 						<Route path="/single/:theid" component={Single} />
+						<Route path="/campains" component={Campains} />
 						<Route path="/olvidoPassword" component={OlvidoPassword} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
