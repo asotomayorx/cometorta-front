@@ -7,6 +7,7 @@ import { Demo } from "./views/demo";
 import { Login } from "./views/login";
 import { Single } from "./views/single";
 import { Status } from "./views/status";
+import { OlvidoPassword } from "./views/olvidoPassword";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -29,6 +30,7 @@ export const Layout = () => {
 						<Route path="/demo" component={Demo} />
 						<Route path="/status" component={Status} />
 						<Route path="/single/:theid" component={Single} />
+						<Route path="/olvidoPassword" component={OlvidoPassword} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />
