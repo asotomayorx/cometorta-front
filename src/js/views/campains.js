@@ -12,7 +12,7 @@ export const Campains = () => {
 					<div className="row">
 						<div className="col-sm-6">
 							<h2>
-								Manage <b>Employees</b>
+								Administrar <b>Empresas</b>
 							</h2>
 						</div>
 						<div className="col-sm-6">
@@ -23,10 +23,10 @@ export const Campains = () => {
 									title=""
 									data-original-title="Edit"
 								/>{" "}
-								<span>Add New Employee</span>
+								<span>Agregar nueva Empresa</span>
 							</a>
 							<a href="#deleteEmployeeModal" className="btn btn-danger" data-toggle="modal">
-								<i className="material-icons"></i> <span>Delete</span>
+								<i className="material-icons"></i> <span>Borrar</span>
 							</a>
 						</div>
 					</div>
@@ -40,11 +40,11 @@ export const Campains = () => {
 									<label htmlFor="selectAll" />
 								</span>
 							</th>
-							<th>Name</th>
+							<th>Nombre</th>
 							<th>Email</th>
-							<th>Address</th>
-							<th>Phone</th>
-							<th>Actions</th>
+							<th>Direccion</th>
+							<th>Telefono</th>
+							<th>Accion</th>
 						</tr>
 					</thead>
 					<tbody>

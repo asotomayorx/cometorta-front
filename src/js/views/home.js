@@ -6,7 +6,7 @@ export const Home = () => {
 	return (
 		<form>
 			<div className="form-group">
-				<label>Email address</label>
+				<label>Direccion de Email</label>
 				<input
 					type="email"
 					className="form-control"
@@ -19,7 +19,7 @@ export const Home = () => {
 				</small>
 			</div>
 			<div className="form-group">
-				<label>Password</label>
+				<label>contraseña</label>
 				<input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
 			</div>
 			<div className="form-group form-check">
@@ -27,7 +27,7 @@ export const Home = () => {
 				<label className="form-check-label">Check me out</label>
 			</div>
 			<button type="submit" className="btn btn-primary">
-				Submit
+				Enviar
 			</button>
 		</form>
 	);
