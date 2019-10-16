@@ -66,7 +66,7 @@ export const Campains = () => {
 										data-toggle="tooltip"
 										title=""
 										data-original-title="Edit">
-										Edit
+										
 									</i>
 								</a>
 								<a href="#deleteEmployeeModal" className="delete" data-toggle="modal">

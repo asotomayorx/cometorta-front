@@ -1,4 +1,6 @@
 /* 
     General Styles
 */
-@import '~material-icons/css/material-icons.scss';
+$material-icons-font-path: '~material-icons/iconfont/';
+ 
+@import '~material-icons/iconfont/material-icons.scss';

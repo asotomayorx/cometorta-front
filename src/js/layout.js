@@ -12,8 +12,6 @@ import { Status } from "./views/status";
 import { OlvidoPassword } from "./views/olvidoPassword";
 import injectContext from "./store/appContext";
 
-import injectContext from "./store/appContext";
-
 //create your first component
 export const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
