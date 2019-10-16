@@ -4,7 +4,7 @@ import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
-import { Login } from "./views/login";
+
 import { Single } from "./views/single";
 import { Campains } from "./views/campains";
 import { Clients } from "./views/clients";
@@ -24,7 +24,7 @@ export const Layout = () => {
 				<ScrollToTop>
 					<Switch>
 						<Route exact path="/" component={Home} />
-						<Route path="/login" component={Login} />
+
 						<Route path="/demo" component={Demo} />
 						<Route path="/clients" component={Clients} />
 						<Route path="/status" component={Status} />

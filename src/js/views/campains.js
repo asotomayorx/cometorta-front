@@ -40,11 +40,11 @@ export const Campains = () => {
 									<label htmlFor="selectAll" />
 								</span>
 							</th>
-							<th>Name</th>
-							<th>Email</th>
-							<th>Address</th>
-							<th>Phone</th>
-							<th>Actions</th>
+							<th>Empresa</th>
+							<th>Rut</th>
+							<th>Dirección</th>
+							<th>Telefono</th>
+							<th>Editar/Borrar</th>
 						</tr>
 					</thead>
 					<tbody>
