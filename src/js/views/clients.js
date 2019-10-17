@@ -84,15 +84,6 @@ export const Clients = () => (
 						</div>
 					</div>
 				</div>
-
-				<div className="card-footer text-right">
-					<button type="button" className="btn btn-secondary">
-						Volver
-					</button>
-					<button type="button" className="btn btn-primary ml-1">
-						Guardar
-					</button>
-				</div>
 			</div>
 		</div>
 
@@ -171,6 +162,14 @@ export const Clients = () => (
 								placeholder="Limite diario"
 								pattern="[0-9]{11}"
 							/>
+						</div>
+						<div className="form-group col-md-6">
+							<label htmlFor="formGroupExampleInput">Mensaje SMS</label>
+							<textarea className="form-control" rows="5" id="comment" />
+						</div>
+						<div className="form-group col-md-6">
+							<label htmlFor="formGroupExampleInput">Mensaje Email</label>
+							<textarea className="form-control" rows="5" id="comment" />
 						</div>
 					</div>
 				</div>

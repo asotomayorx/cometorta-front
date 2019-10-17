@@ -45,6 +45,11 @@ export const Campains = () => {
 							<th>Direccion</th>
 							<th>Telefono</th>
 							<th>Accion</th>
+							<th>Empresa</th>
+							<th>Rut</th>
+							<th>Dirección</th>
+							<th>Telefono</th>
+							<th>Editar/Borrar</th>
 						</tr>
 					</thead>
 					<tbody>
