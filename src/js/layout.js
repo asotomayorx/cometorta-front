@@ -6,7 +6,9 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 
 import { Single } from "./views/single";
+import { CampainsAdd } from "./views/campainsAdd";
 import { Campains } from "./views/campains";
+import { ClientsAdd } from "./views/clientsAdd";
 import { Clients } from "./views/clients";
 import { Status } from "./views/status";
 import { OlvidoPassword } from "./views/olvidoPassword";
@@ -26,9 +28,11 @@ export const Layout = () => {
 						<Route exact path="/" component={Home} />
 
 						<Route path="/demo" component={Demo} />
+						<Route path="/clientsAdd" component={ClientsAdd} />
 						<Route path="/clients" component={Clients} />
 						<Route path="/status" component={Status} />
 						<Route path="/single/:theid" component={Single} />
+						<Route path="/campainsAdd" component={CampainsAdd} />
 						<Route path="/campains" component={Campains} />
 						<Route path="/olvidoPassword" component={OlvidoPassword} />
 						<Route render={() => <h1>Not found!</h1>} />
