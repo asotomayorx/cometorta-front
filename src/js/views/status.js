@@ -4,7 +4,7 @@ import "../../styles/home.scss";
 export const Status = () => {
 	return (
 		<div>
-			<h1>STATUS</h1>
+			<h1>Reporte empresa ....</h1>
 			<form>
 				<div className="form-group row">
 					<label htmlFor="empresa" className="col-sm-2 col-form-label">
