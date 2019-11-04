@@ -1,5 +1,4 @@
 import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import { Link } from "react-router-dom";
 import layout from "../layout";
@@ -9,10 +8,14 @@ export const Campains = () => {
 		<div className="container">
 			<div className="table-wrapper">
 				<div className="table-title">
+					<br />
+					<br />
+
 					<div className="row">
 						<div className="col-sm-6">
 							<h2>
-								Administrar <b>Empresas</b>
+								Administrador de
+								<b> Campaña</b>
 							</h2>
 						</div>
 						<div className="col-sm-6">
@@ -23,10 +26,11 @@ export const Campains = () => {
 									title=""
 									data-original-title="Edit"
 								/>{" "}
-								<span>Agregar nueva Empresa</span>
+								<span>Agregar nueva Campaña</span>
+								<span />
 							</a>
 							<a href="#deleteEmployeeModal" className="btn btn-danger" data-toggle="modal">
-								<i className="material-icons"></i> <span>Borrar</span>
+								<i className="material-icons ml-auto"></i> <span>Borrar</span>
 							</a>
 						</div>
 					</div>
@@ -40,15 +44,10 @@ export const Campains = () => {
 									<label htmlFor="selectAll" />
 								</span>
 							</th>
-							<th>Nombre</th>
-							<th>Email</th>
-							<th>Direccion</th>
-							<th>Telefono</th>
-							<th>Accion</th>
-							<th>Empresa</th>
-							<th>Rut</th>
-							<th>Dirección</th>
-							<th>Telefono</th>
+							<th>Comuna</th>
+							<th>Persona/Empresa</th>
+							<th>Fecha de Termino</th>
+							<th>Presupuesto</th>
 							<th>Editar/Borrar</th>
 						</tr>
 					</thead>
@@ -60,7 +59,7 @@ export const Campains = () => {
 									<label htmlFor="checkbox1" />
 								</span>
 							</td>
-							<td>Thomas Hardy</td>
+							<td>Curicó</td>
 							<td>thomashardy@mail.com</td>
 							<td>89 Chiaroscuro Rd, Portland, USA</td>
 							<td>(171) 555-2222</td>
@@ -92,7 +91,7 @@ export const Campains = () => {
 									<label htmlFor="checkbox2" />
 								</span>
 							</td>
-							<td>Dominique Perrier</td>
+							<td>Curicó</td>
 							<td>dominiqueperrier@mail.com</td>
 							<td>Obere Str. 57, Berlin, Germany</td>
 							<td>(313) 555-5735</td>
@@ -124,7 +123,7 @@ export const Campains = () => {
 									<label htmlFor="checkbox3" />
 								</span>
 							</td>
-							<td>Maria Anders</td>
+							<td>Curicó</td>
 							<td>mariaanders@mail.com</td>
 							<td>25, rue Lauriston, Paris, France</td>
 							<td>(503) 555-9931</td>
@@ -156,7 +155,7 @@ export const Campains = () => {
 									<label htmlFor="checkbox4" />
 								</span>
 							</td>
-							<td>Fran Wilson</td>
+							<td>Curicó</td>
 							<td>franwilson@mail.com</td>
 							<td>C/ Araquil, 67, Madrid, Spain</td>
 							<td>(204) 619-5731</td>
@@ -188,7 +187,7 @@ export const Campains = () => {
 									<label htmlFor="checkbox5" />
 								</span>
 							</td>
-							<td>Martin Blank</td>
+							<td>Curicó</td>
 							<td>martinblank@mail.com</td>
 							<td>Via Monte Bianco 34, Turin, Italy</td>
 							<td>(480) 631-2097</td>
@@ -215,6 +214,7 @@ export const Campains = () => {
 						</tr>
 					</tbody>
 				</table>
+				{/* 
 				<div className="clearfix">
 					<div className="hint-text">
 						Showing <b>5</b> out of <b>25</b> entries
@@ -255,6 +255,7 @@ export const Campains = () => {
 						</li>
 					</ul>
 				</div>
+				*/}
 			</div>
 		</div>
 	);
