@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/home.scss";
 import { Consumer } from "../store/appContext";
 
-export class home extends React.Component {
+export class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.actionsContext = null;
@@ -77,9 +77,7 @@ export class home extends React.Component {
 															className="form-check-input"
 															id="exampleCheck1"
 														/>
-														<label className="form-check-label">
-															Recordar mi sesión? (Andrés)
-														</label>
+														<label className="form-check-label">Recordar mi sesión?</label>
 													</div>
 													<div className="text-center">
 														<button type="submit" className="btn btn-primary">

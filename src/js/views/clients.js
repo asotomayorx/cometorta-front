@@ -53,7 +53,9 @@ export class Clients extends React.Component {
 														title=""
 														data-original-title="Edit"
 													/>{" "}
-													<span>Agregar nuevo Cliente</span>
+													<Link to="/clientsAdd">
+														<span>Agregar nuevo Cliente</span>
+													</Link>
 													<span />
 												</a>
 												<a

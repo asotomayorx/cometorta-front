@@ -132,9 +132,9 @@ export class ClientsAdd extends React.Component {
 								<div className="container">
 									<div className="card">
 										<div className="card-footer text-right">
-											<button type="button" className="btn btn-secondary">
+											<Link to="/clients" className="btn btn-secondary">
 												Volver a Clientes
-											</button>
+											</Link>
 											<button type="button" className="btn btn-primary ml-1">
 												Guardar
 											</button>
@@ -144,7 +144,7 @@ export class ClientsAdd extends React.Component {
 									<br />
 									<br />
 
-									<Link to="/clientsAdd">
+									<Link to="/login">
 										<button className="btn btn-primary">Volver a Casa</button>
 									</Link>
 								</div>
