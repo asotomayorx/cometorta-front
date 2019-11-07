@@ -12,7 +12,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			name: ""
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,6 +38,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			saludar: name => {
+				alert("Hola " + name);
+			},
+			empresa: nombrEmpresa => {
+				alert("Coloca nombre " + nombrEmpresa);
+			},
+			saveDataCompany: data => {
+				/*
+				fetch('MIURL', {
+					method: 'POST',
+					body: JSON.stringify(data)
+				}).then(resp => {
+
+				})
+				*/
+				console.log("SAVE DATA COMPANY CONTEXT", data);
 			}
 		}
 	};
