@@ -152,7 +152,7 @@ export class CampainsAdd extends React.Component {
 											<button
 												type="button"
 												className="btn btn-primary ml-1"
-												onClick={() => this.onHandleSubmit()}>
+												onClick={() => actions.saveDataCompany(this.state.inputs)}>
 												Guardar
 											</button>
 										</div>

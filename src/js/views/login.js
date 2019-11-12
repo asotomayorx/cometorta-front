@@ -83,6 +83,12 @@ export class Home extends React.Component {
 														<button type="submit" className="btn btn-primary">
 															Ingresar
 														</button>
+														<button
+															type="button"
+															onClick={() => actions.personas()}
+															className="btn btn-primary">
+															personas
+														</button>
 													</div>
 												</form>
 											</div>
