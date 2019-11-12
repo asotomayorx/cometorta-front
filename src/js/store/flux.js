@@ -46,15 +46,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 				alert("Coloca nombre " + nombrEmpresa);
 			},
 			saveDataCompany: data => {
-				/*
-				fetch('MIURL', {
-					method: 'POST',
-					body: JSON.stringify(data)
-				}).then(resp => {
+				console.log("hola");
 
-				})
-				*/
+				fetch("http://localhost:3000/campainsAdd", {
+					method: "POST",
+					body: JSON.stringify(data)
+				}).then(resp => {});
+
 				console.log("SAVE DATA COMPANY CONTEXT", data);
+			},
+			personas: () => {
+				console.log("hola");
+
+				fetch("http://localhost:3000/persons")
+					.then(res => res.json())
+					.then(response => {
+						console.log(response);
+					});
 			}
 		}
 	};
