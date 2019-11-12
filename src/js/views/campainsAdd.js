@@ -128,6 +128,7 @@ export class CampainsAdd extends React.Component {
 														rows="5"
 														id="comment"
 														onChange={this.onHandleChange}
+														value={this.state.value}
 														name="mensajeSMS"
 													/>
 												</div>
@@ -139,6 +140,7 @@ export class CampainsAdd extends React.Component {
 														id="comment"
 														placeholder="WYSIWYG"
 														onChange={this.onHandleChange}
+														value={this.state.value}
 														name="mensajeEMAIL"
 													/>
 												</div>
