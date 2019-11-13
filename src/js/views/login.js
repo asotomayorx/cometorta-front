@@ -9,7 +9,8 @@ export class Home extends React.Component {
 		this.actionsContext = null;
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			role_id: 1
 		};
 	}
 

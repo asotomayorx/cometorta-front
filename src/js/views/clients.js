@@ -58,24 +58,13 @@ export class Clients extends React.Component {
 													</Link>
 													<span />
 												</a>
-												<a
-													href="#deleteEmployeeModal"
-													className="btn btn-danger"
-													data-toggle="modal">
-													<i className="material-icons ml-auto"></i> <span>Borrar</span>
-												</a>
 											</div>
 										</div>
 									</div>
 									<table className="table table-striped table-hover">
 										<thead>
 											<tr>
-												<th>
-													<span className="custom-checkbox">
-														<input type="checkbox" id="selectAll" />
-														<label htmlFor="selectAll" />
-													</span>
-												</th>
+												<th />
 												<th>Nombre</th>
 												<th>Email</th>
 												<th>Direccion</th>
@@ -86,203 +75,113 @@ export class Clients extends React.Component {
 										<tbody>
 											<tr>
 												<td>
-													<span className="custom-checkbox">
-														<input
-															type="checkbox"
-															id="checkbox1"
-															name="options[]"
-															value="1"
-														/>
-														<label htmlFor="checkbox1" />
-													</span>
+													<span className="custom-checkbox" />
 												</td>
 												<td>Thomas Hardy</td>
 												<td>thomashardy@mail.com</td>
 												<td>89 Chiaroscuro Rd, Portland, USA</td>
 												<td>(171) 555-2222</td>
 												<td>
-													<a href="#editEmployeeModal" className="edit" data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Edit">
-															
-														</i>
-													</a>
 													<a
 														href="#deleteEmployeeModal"
-														className="delete"
+														className="btn btn-success"
 														data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Delete">
-															
-														</i>
+														<i className="material-icons ml-auto"></i> <span>Editar</span>
+													</a>
+													&nbsp;
+													<a
+														href="#deleteEmployeeModal"
+														className="btn btn-danger"
+														data-toggle="modal">
+														<i className="material-icons ml-auto"></i> <span>Borrar</span>
 													</a>
 												</td>
 											</tr>
 											<tr>
-												<td>
-													<span className="custom-checkbox">
-														<input
-															type="checkbox"
-															id="checkbox2"
-															name="options[]"
-															value="1"
-														/>
-														<label htmlFor="checkbox2" />
-													</span>
-												</td>
+												<td />
 												<td>Dominique Perrier</td>
 												<td>dominiqueperrier@mail.com</td>
 												<td>Obere Str. 57, Berlin, Germany</td>
 												<td>(313) 555-5735</td>
 												<td>
-													<a href="#editEmployeeModal" className="edit" data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Edit">
-															
-														</i>
-													</a>
 													<a
 														href="#deleteEmployeeModal"
-														className="delete"
+														className="btn btn-success"
 														data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Delete">
-															
-														</i>
+														<i className="material-icons ml-auto"></i> <span>Editar</span>
+													</a>
+													&nbsp;
+													<a
+														href="#deleteEmployeeModal"
+														className="btn btn-danger"
+														data-toggle="modal">
+														<i className="material-icons ml-auto"></i> <span>Borrar</span>
 													</a>
 												</td>
 											</tr>
 											<tr>
-												<td>
-													<span className="custom-checkbox">
-														<input
-															type="checkbox"
-															id="checkbox3"
-															name="options[]"
-															value="1"
-														/>
-														<label htmlFor="checkbox3" />
-													</span>
-												</td>
+												<td />
 												<td>Maria Anders</td>
 												<td>mariaanders@mail.com</td>
 												<td>25, rue Lauriston, Paris, France</td>
 												<td>(503) 555-9931</td>
 												<td>
-													<a href="#editEmployeeModal" className="edit" data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Edit">
-															
-														</i>
-													</a>
 													<a
 														href="#deleteEmployeeModal"
-														className="delete"
+														className="btn btn-success"
 														data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Delete">
-															
-														</i>
+														<i className="material-icons ml-auto"></i> <span>Editar</span>
+													</a>
+													&nbsp;
+													<a
+														href="#deleteEmployeeModal"
+														className="btn btn-danger"
+														data-toggle="modal">
+														<i className="material-icons ml-auto"></i> <span>Borrar</span>
 													</a>
 												</td>
 											</tr>
 											<tr>
-												<td>
-													<span className="custom-checkbox">
-														<input
-															type="checkbox"
-															id="checkbox4"
-															onChange={this.onHandleChange}
-															name="options1"
-															value="1"
-														/>
-														<label htmlFor="checkbox4" />
-													</span>
-												</td>
+												<td />
 												<td>Fran Wilson</td>
 												<td>franwilson@mail.com</td>
 												<td>C/ Araquil, 67, Madrid, Spain</td>
 												<td>(204) 619-5731</td>
 												<td>
-													<a href="#editEmployeeModal" className="edit" data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Edit">
-															
-														</i>
-													</a>
 													<a
 														href="#deleteEmployeeModal"
-														className="delete"
+														className="btn btn-success"
 														data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Delete">
-															
-														</i>
+														<i className="material-icons ml-auto"></i> <span>Editar</span>
+													</a>
+													&nbsp;
+													<a
+														href="#deleteEmployeeModal"
+														className="btn btn-danger"
+														data-toggle="modal">
+														<i className="material-icons ml-auto"></i> <span>Borrar</span>
 													</a>
 												</td>
 											</tr>
 											<tr>
-												<td>
-													<span className="custom-checkbox">
-														<input
-															type="checkbox"
-															id="checkbox5"
-															name="options2"
-															onChange={this.onHandleChange}
-															value="1"
-														/>
-														<label htmlFor="checkbox5" />
-													</span>
-												</td>
+												<td />
 												<td>Martin Blank</td>
 												<td>martinblank@mail.com</td>
 												<td>Via Monte Bianco 34, Turin, Italy</td>
 												<td>(480) 631-2097</td>
 												<td>
-													<a href="#editEmployeeModal" className="edit" data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Edit">
-															
-														</i>
-													</a>
 													<a
 														href="#deleteEmployeeModal"
-														className="delete"
+														className="btn btn-success"
 														data-toggle="modal">
-														<i
-															className="material-icons"
-															data-toggle="tooltip"
-															title=""
-															data-original-title="Delete">
-															
-														</i>
+														<i className="material-icons ml-auto"></i> <span>Editar</span>
+													</a>
+													&nbsp;
+													<a
+														href="#deleteEmployeeModal"
+														className="btn btn-danger"
+														data-toggle="modal">
+														<i className="material-icons ml-auto"></i> <span>Borrar</span>
 													</a>
 												</td>
 											</tr>

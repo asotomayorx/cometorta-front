@@ -70,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch("http://localhost:3000/login", {
 					method: "POST",
-					body: JSON.stringify("data", data)
+					body: JSON.stringify(data)
 				})
 					.then(res => {
 						console.log("hola");
@@ -83,12 +83,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 			register: data => {
 				console.log(data);
 
-				fetch("http://localhost:3000/register", {
+				fetch("https://3000-cf3276eb-e7ac-4450-bc3d-b48c33284de4.ws-us02.gitpod.io/register", {
 					method: "POST",
-					body: JSON.stringify("data", data)
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
 				})
 					.then(res => {
-						console.log("hola");
+						//console.log("hola");
 						res.json();
 					})
 					.then(response => {
