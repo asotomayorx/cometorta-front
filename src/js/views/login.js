@@ -1,13 +1,14 @@
 import React from "react";
 import "../../styles/home.scss";
 import { Consumer } from "../store/appContext";
+import { SSL_OP_MSIE_SSLV2_RSA_PADDING } from "constants";
 
 export class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.actionsContext = null;
 		this.state = {
-			email: "",
+			username: "",
 			password: ""
 		};
 	}
@@ -15,16 +16,12 @@ export class Home extends React.Component {
 	// Guarda datos del input en el state
 	handleEmail(text) {
 		this.setState({
-			inputs: {
-				email: text.target.value
-			}
+			username: text.target.value
 		});
 	}
 	handlePassword(text) {
 		this.setState({
-			inputs: {
-				password: text.target.value
-			}
+			password: text.target.value
 		});
 	}
 
@@ -60,7 +57,7 @@ export class Home extends React.Component {
 															id="exampleInputEmail1"
 															ria-describedby="emailHelp"
 															placeholder="Ingrese Correo"
-															onClick={text => {
+															onInput={text => {
 																this.handleEmail(text);
 															}}
 															name="usuario"
@@ -76,7 +73,7 @@ export class Home extends React.Component {
 															className="form-control"
 															id="exampleInputPassword1"
 															placeholder="Ingrese su contraseña"
-															onClick={text => {
+															onInput={text => {
 																this.handlePassword(text);
 															}}
 															name="contrasena"
@@ -91,14 +88,17 @@ export class Home extends React.Component {
 														<label className="form-check-label">Recordar mi sesión?</label>
 													</div>
 													<div className="text-center">
-														<button type="submit" className="btn btn-primary">
-															Ingresar
+														<button
+															type="button"
+															onClick={() => actions.login(this.state)}
+															className="btn btn-primary">
+															Login
 														</button>
 														<button
 															type="button"
-															onClick={() => actions.personas()}
+															onClick={() => actions.register(this.state)}
 															className="btn btn-primary">
-															personas
+															Register
 														</button>
 													</div>
 												</form>

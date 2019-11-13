@@ -64,6 +64,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => {
 						console.log(response);
 					});
+			},
+			login: data => {
+				console.log(data);
+
+				fetch("http://localhost:3000/login", {
+					method: "POST",
+					body: JSON.stringify("data", data)
+				})
+					.then(res => {
+						console.log("hola");
+						res.json();
+					})
+					.then(response => {
+						console.log("response", response);
+					});
+			},
+			register: data => {
+				console.log(data);
+
+				fetch("http://localhost:3000/register", {
+					method: "POST",
+					body: JSON.stringify("data", data)
+				})
+					.then(res => {
+						console.log("hola");
+						res.json();
+					})
+					.then(response => {
+						console.log("response", response);
+					});
 			}
 		}
 	};
