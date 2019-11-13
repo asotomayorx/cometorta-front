@@ -68,9 +68,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			login: data => {
 				console.log(data);
 
-				fetch("http://localhost:3000/login", {
+				fetch("https://3000-cf3276eb-e7ac-4450-bc3d-b48c33284de4.ws-us02.gitpod.io/login", {
 					method: "POST",
-					body: JSON.stringify(data)
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
 				})
 					.then(res => {
 						console.log("hola");
