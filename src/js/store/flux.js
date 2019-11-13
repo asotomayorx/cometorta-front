@@ -45,6 +45,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			empresa: nombrEmpresa => {
 				alert("Coloca nombre " + nombrEmpresa);
 			},
+
 			saveDataCompany: data => {
 				console.log("hola");
 

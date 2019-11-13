@@ -7,19 +7,26 @@ export class Home extends React.Component {
 		super(props);
 		this.actionsContext = null;
 		this.state = {
-			inputs: {}
+			email: "",
+			password: ""
 		};
 	}
 
 	// Guarda datos del input en el state
-	onHandleChange = e => {
+	handleEmail(text) {
 		this.setState({
 			inputs: {
-				...this.state.inputs,
-				[e.target.name]: e.target.value
+				email: text.target.value
 			}
 		});
-	};
+	}
+	handlePassword(text) {
+		this.setState({
+			inputs: {
+				password: text.target.value
+			}
+		});
+	}
 
 	render() {
 		return (
@@ -52,8 +59,10 @@ export class Home extends React.Component {
 															className="form-control"
 															id="exampleInputEmail1"
 															ria-describedby="emailHelp"
-															placeholder="Correo"
-															onChange={this.onHandleChange}
+															placeholder="Ingrese Correo"
+															onClick={text => {
+																this.handleEmail(text);
+															}}
 															name="usuario"
 														/>
 														<small id="emailHelp" className="form-text text-muted">
@@ -66,8 +75,10 @@ export class Home extends React.Component {
 															type="Password"
 															className="form-control"
 															id="exampleInputPassword1"
-															placeholder="Contraseña"
-															onChange={this.onHandleChange}
+															placeholder="Ingrese su contraseña"
+															onClick={text => {
+																this.handlePassword(text);
+															}}
 															name="contrasena"
 														/>
 													</div>
