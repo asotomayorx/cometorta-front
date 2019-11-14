@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/home.scss";
 import { Consumer } from "../store/appContext";
 
-export class home extends React.Component {
+export class Home extends React.Component {
 	constructor(props) {
 		super(props);
 		this.actionsContext = null;
