@@ -90,7 +90,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => {
 						console.log("hola");
 						res.json();
-					})
+					}) 
 					.then(response => {
 						console.log("response", response);
 					});
