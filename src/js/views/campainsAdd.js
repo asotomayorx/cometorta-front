@@ -15,14 +15,29 @@ export class CampainsAdd extends React.Component {
 		};
 	}
 
+	componentDidMount() {}
 	// Guarda datos del input en el state
 	onHandleChange = e => {
-		this.setState({
-			inputs: {
-				...this.state.inputs,
-				[e.target.name]: e.target.value
-			}
-		});
+		if (e.target !== null) {
+			this.setState({
+				inputs: {
+					...this.state.inputs,
+					[e.target.name]: e.target.value
+				}
+			});
+		} else if (e.detail !== null) {
+			this.setState({
+				inputs: {
+					...this.state.inputs,
+					[e.detail.name]: e.detail.value
+				}
+			});
+		}
+	};
+	onHandleSave = e => {
+		// PENDIENTE: GENERAR UN COMPONENTE QUE GUARDE ESTO! https://es.reactjs.org/docs/refs-and-the-dom.html
+		e.preventDefault();
+		console.log("GUARDAR", this.state.inputs);
 	};
 
 	render() {
@@ -124,14 +139,7 @@ export class CampainsAdd extends React.Component {
 												</div>
 												<div className="form-group col-md-6">
 													<label htmlFor="formGroupExampleInput">Mensaje SMS</label>
-													<textarea
-														className="form-control"
-														rows="5"
-														id="comment"
-														onChange={this.onHandleChange}
-														value={this.state.value}
-														name="mensajeSMS"
-													/>
+													<InputHTML name="msg-email" onChange={this.onHandleChange} />
 												</div>
 												<div className="form-group col-md-6">
 													<label htmlFor="formGroupExampleInput">Mensaje Email</label>
@@ -147,7 +155,7 @@ export class CampainsAdd extends React.Component {
 											<button
 												type="button"
 												className="btn btn-primary ml-1"
-												onClick={() => actions.saveDataCompany(this.state.inputs)}>
+												onClick={e => this.onHandleSave(e)}>
 												Guardar
 											</button>
 										</div>
