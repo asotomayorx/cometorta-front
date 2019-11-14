@@ -164,7 +164,7 @@ export class CampainsAdd extends React.Component {
 									<br />
 									<br />
 
-									<Link to="/login">
+									<Link to="/">
 										<button className="btn btn-primary">Volver a Casa</button>
 									</Link>
 								</div>

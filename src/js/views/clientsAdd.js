@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/demo.scss";
+
 import { Consumer } from "../store/appContext";
+import "../../styles/demo.scss";
 
 export class ClientsAdd extends React.Component {
 	constructor(props) {
@@ -144,7 +145,7 @@ export class ClientsAdd extends React.Component {
 									<br />
 									<br />
 
-									<Link to="/login">
+									<Link to="/">
 										<button className="btn btn-primary">Volver a Casa</button>
 									</Link>
 								</div>
