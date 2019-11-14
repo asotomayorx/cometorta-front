@@ -143,7 +143,7 @@ export class CampainsAdd extends React.Component {
 												</div>
 												<div className="form-group col-md-6">
 													<label htmlFor="formGroupExampleInput">Mensaje Email</label>
-													<InputHTML name="msg-email" onChange={this.onHandleChange} />
+													<InputHTML name="msg-sms" onChange={this.onHandleChange} />
 												</div>
 											</div>
 										</div>
