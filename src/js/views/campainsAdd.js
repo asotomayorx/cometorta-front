@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import layout from "../layout";
 import { Consumer } from "../store/appContext";
 
+import InputHTML from "../component/inputHtml";
 import "../../styles/demo.scss";
 
 export class CampainsAdd extends React.Component {
@@ -134,15 +135,7 @@ export class CampainsAdd extends React.Component {
 												</div>
 												<div className="form-group col-md-6">
 													<label htmlFor="formGroupExampleInput">Mensaje Email</label>
-													<textarea
-														className="form-control"
-														rows="5"
-														id="comment"
-														placeholder="WYSIWYG"
-														onChange={this.onHandleChange}
-														value={this.state.value}
-														name="mensajeEMAIL"
-													/>
+													<InputHTML name="msg-email" onChange={this.onHandleChange} />
 												</div>
 											</div>
 										</div>

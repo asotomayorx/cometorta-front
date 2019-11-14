@@ -76,7 +76,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(res => {
-						console.log("hola");
+						//console.log("hola");
 						res.json();
 					})
 					.then(response => {
