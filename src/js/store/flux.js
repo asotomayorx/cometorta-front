@@ -63,7 +63,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(res => res.json())
 					.then(response => {
 						console.log(response);
-					});
+					}); 
 			},
 			login: data => {
 				console.log(data);
