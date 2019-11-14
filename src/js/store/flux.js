@@ -1,7 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			token: ""
+			token: "",
+			clients: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -115,7 +116,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return res.json();
 					})
 					.then(response => {
+						setStore({ clients: response });
 						console.log("clients", response);
+					});
+			},
+			ClientsAdd: data => {
+				console.log("data", data);
+				fetch("http://localhost:3000/clients", {
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => {
+						//console.log("hola");
+						return res.json();
+					})
+					.then(response => {
+						getActions().getClients();
+						console.log("nuevo cliente", response);
 					});
 			}
 		}
