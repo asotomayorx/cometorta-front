@@ -1,19 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
-			name: ""
+			token: ""
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -52,7 +40,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("http://localhost:3000/campainsAdd", {
 					method: "POST",
 					body: JSON.stringify(data)
-				}).then(resp => {});
+				}).then(resp => {
+					return res.json();
+				});
 
 				console.log("SAVE DATA COMPANY CONTEXT", data);
 			},
@@ -60,7 +50,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 				console.log("hola");
 
 				fetch("http://localhost:3000/persons")
-					.then(res => res.json())
+					.then(res => {
+						return res.json();
+					})
 					.then(response => {
 						console.log(response);
 					});
@@ -68,7 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			login: data => {
 				console.log(data);
 
-				fetch("https://3000-cf3276eb-e7ac-4450-bc3d-b48c33284de4.ws-us02.gitpod.io/login", {
+				fetch("http://localhost:3000/login", {
 					method: "POST",
 					body: JSON.stringify(data),
 					headers: {
@@ -76,17 +68,27 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 				})
 					.then(res => {
-						console.log("hola");
-						res.json();
+						return res.json();
 					})
 					.then(response => {
-						console.log("response", response);
+						//const store = getStore();
+						//const {token} = store;
+						//getActions().nombredeaccion
+						if (response.token) {
+							setStore({ token: response.token });
+							const store = getStore();
+							console.log(store.token);
+							document.location.href = "clients/";
+						} else {
+							console.log(response);
+							alert(response.ERROR);
+						}
 					});
 			},
 			register: data => {
 				console.log(data);
 
-				fetch("https://3000-cf3276eb-e7ac-4450-bc3d-b48c33284de4.ws-us02.gitpod.io/register", {
+				fetch("http://localhost:3000/register", {
 					method: "POST",
 					body: JSON.stringify(data),
 					headers: {
@@ -95,10 +97,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(res => {
 						//console.log("hola");
-						res.json();
+						return res.json();
 					})
 					.then(response => {
 						console.log("response", response);
+					});
+			},
+			getClients: () => {
+				fetch("http://localhost:3000/clients", {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => {
+						//console.log("hola");
+						return res.json();
+					})
+					.then(response => {
+						console.log("clients", response);
 					});
 			}
 		}
