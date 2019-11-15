@@ -24,11 +24,6 @@ export class ClientsAdd extends React.Component {
 			}
 		});
 	};
-	handleSubmit(e) {
-		e.preventDefault();
-
-		fetch();
-	}
 
 	render() {
 		return (

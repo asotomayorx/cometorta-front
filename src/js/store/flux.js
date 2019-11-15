@@ -165,10 +165,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return res.json();
 					})
 					.then(response => {
-						getActions().getCampaigns(response.client_id);
-						alert("Se agregó la nueva campaña hasta el ", response.endDate);
-						router.push("/campains/");
-						console.log("nueva campana ", response);
+						getActions().getCampaigns(response.client_id, router);
+						alert("se agregó " + response.endDate);
+						console.log(response.endDate);
+						getActions().activateCampaign(response);
+					});
+			},
+			activateCampaign: newCampaign => {
+				fetch("http://localhost:3000/village/" + newCampaign.villages_id, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json"
+					},
+					body: JSON.stringify(newCampaign)
+				})
+					.then(res => {
+						return res.json();
+					})
+					.then(response => {
+						console.log(response);
 					});
 			}
 		}

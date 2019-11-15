@@ -69,7 +69,7 @@ export class CampainsAdd extends React.Component {
 														type="text"
 														className="form-control"
 														id="formGroupExampleInput"
-														placeholder="DD/MM/AA"
+														placeholder="AA/MM/DD"
 														pattern="[A-Za-z]{25}"
 														onChange={this.onHandleChange}
 														name="endDate"

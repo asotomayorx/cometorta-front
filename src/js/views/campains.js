@@ -105,6 +105,15 @@ export class Campains extends React.Component {
 						);
 					}}
 				</Consumer>
+				<div className="container">
+					<div className="card">
+						<div className="card-footer text-right">
+							<Link to="/clients" className="btn btn-secondary">
+								Volver a Clientes
+							</Link>
+						</div>
+					</div>
+				</div>
 			</>
 		);
 	}
