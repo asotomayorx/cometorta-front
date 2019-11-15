@@ -1,7 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			token: ""
+			token: "",
+			clients: [],
+			campaigns: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -115,7 +117,66 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return res.json();
 					})
 					.then(response => {
+						setStore({ clients: response });
 						console.log("clients", response);
+					});
+			},
+			ClientsAdd: (data, router) => {
+				console.log("data", data);
+				fetch("http://localhost:3000/clients", {
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => {
+						//console.log("hola");
+						return res.json();
+					})
+					.then(response => {
+						getActions().getClients();
+						alert("Se agregó el nuevo cliente ", response.name);
+						router.push("clients/");
+						console.log("nuevo cliente", response);
+					});
+			},
+			getCampaigns: (client_id, router) => {
+				console.log("data", client_id);
+				fetch("http://localhost:3000/campaigns/" + client_id, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => {
+						console.log("hola");
+						return res.json();
+					})
+					.then(response => {
+						setStore({ campaigns: response });
+						console.log("campa;as", getStore().campaigns);
+						router.push("/campains/");
+					});
+			},
+			campainsAdd: (data, router) => {
+				console.log("data", data);
+				fetch("http://localhost:3000/campainsAdd", {
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => {
+						//console.log("hola");
+						return res.json();
+					})
+					.then(response => {
+						getActions().getCampaigns(response.client_id);
+						alert("Se agregó la nueva campaña hasta el ", response.endDate);
+						router.push("/campains/");
+						console.log("nueva campana ", response);
 					});
 			}
 		}

@@ -3,6 +3,7 @@ import "../../styles/home.scss";
 import { Link } from "react-router-dom";
 import layout from "../layout";
 import { Consumer } from "../store/appContext";
+import PropTypes from "prop-types";
 
 export class Clients extends React.Component {
 	constructor(props) {
@@ -43,21 +44,15 @@ export class Clients extends React.Component {
 												</h2>
 											</div>
 											<div className="col-sm-6">
-												<a
-													href="#addEmployeeModal"
-													className="btn btn-success"
-													data-toggle="modal">
+												<Link to="/clientsAdd" className="btn btn-success" data-toggle="modal">
 													<i
 														className="material-icons"
 														data-toggle="tooltip"
 														title=""
 														data-original-title="Edit"
-													/>{" "}
-													<Link to="/clientsAdd">
-														<span>Agregar nuevo Cliente</span>
-													</Link>
-													<span />
-												</a>
+													/>
+													<span>Agregar nuevo Cliente</span>
+												</Link>
 											</div>
 										</div>
 									</div>
@@ -73,118 +68,39 @@ export class Clients extends React.Component {
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>
-													<span className="custom-checkbox" />
-												</td>
-												<td>Thomas Hardy</td>
-												<td>thomashardy@mail.com</td>
-												<td>89 Chiaroscuro Rd, Portland, USA</td>
-												<td>(171) 555-2222</td>
-												<td>
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-success"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Editar</span>
-													</a>
-													&nbsp;
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-danger"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Borrar</span>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td />
-												<td>Dominique Perrier</td>
-												<td>dominiqueperrier@mail.com</td>
-												<td>Obere Str. 57, Berlin, Germany</td>
-												<td>(313) 555-5735</td>
-												<td>
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-success"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Editar</span>
-													</a>
-													&nbsp;
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-danger"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Borrar</span>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td />
-												<td>Maria Anders</td>
-												<td>mariaanders@mail.com</td>
-												<td>25, rue Lauriston, Paris, France</td>
-												<td>(503) 555-9931</td>
-												<td>
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-success"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Editar</span>
-													</a>
-													&nbsp;
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-danger"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Borrar</span>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td />
-												<td>Fran Wilson</td>
-												<td>franwilson@mail.com</td>
-												<td>C/ Araquil, 67, Madrid, Spain</td>
-												<td>(204) 619-5731</td>
-												<td>
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-success"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Editar</span>
-													</a>
-													&nbsp;
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-danger"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Borrar</span>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td />
-												<td>Martin Blank</td>
-												<td>martinblank@mail.com</td>
-												<td>Via Monte Bianco 34, Turin, Italy</td>
-												<td>(480) 631-2097</td>
-												<td>
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-success"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Editar</span>
-													</a>
-													&nbsp;
-													<a
-														href="#deleteEmployeeModal"
-														className="btn btn-danger"
-														data-toggle="modal">
-														<i className="material-icons ml-auto"></i> <span>Borrar</span>
-													</a>
-												</td>
-											</tr>
+											{store.clients.map((item, i) => {
+												return (
+													<tr key={i}>
+														<td>
+															<span className="custom-checkbox" />
+														</td>
+														<td>{item.name}</td>
+														<td>{item.email}</td>
+														<td>{item.direccion}</td>
+														<td>{item.phone}</td>
+														<td>
+															<a
+																href="#deleteEmployeeModal"
+																className="btn btn-success"
+																data-toggle="modal">
+																<i className="material-icons ml-auto"></i>{" "}
+																<span>Editar</span>
+															</a>
+															&nbsp;
+															<button
+																onClick={() =>
+																	actions.getCampaigns(item.id, this.props.history)
+																}
+																type="button"
+																className="btn btn-danger"
+																data-toggle="modal">
+																<i className="material-icons ml-auto"></i>
+																<span>Campañas</span>
+															</button>
+														</td>
+													</tr>
+												);
+											})}
 										</tbody>
 									</table>
 								</div>
@@ -196,3 +112,7 @@ export class Clients extends React.Component {
 		);
 	}
 }
+
+Clients.propTypes = {
+	history: PropTypes.any
+};

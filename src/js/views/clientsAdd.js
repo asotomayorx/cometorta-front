@@ -2,13 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/demo.scss";
 import { Consumer } from "../store/appContext";
+import PropTypes from "prop-types";
 
 export class ClientsAdd extends React.Component {
 	constructor(props) {
 		super(props);
 		this.actionsContext = null;
 		this.state = {
-			inputs: {}
+			inputs: {
+				users_id: 1
+			}
 		};
 	}
 
@@ -54,7 +57,7 @@ export class ClientsAdd extends React.Component {
 														pattern="[A-Za-z]"
 														maxLength="25"
 														onChange={this.onHandleChange}
-														name="nombre"
+														name="name"
 													/>
 												</div>
 
@@ -121,7 +124,7 @@ export class ClientsAdd extends React.Component {
 														placeholder="+56 9 8765 4321"
 														pattern="[0-9]{11}"
 														onChange={this.onHandleChange}
-														name="telefono"
+														name="phone"
 													/>
 												</div>
 											</div>
@@ -135,7 +138,12 @@ export class ClientsAdd extends React.Component {
 											<Link to="/clients" className="btn btn-secondary">
 												Volver a Clientes
 											</Link>
-											<button type="button" className="btn btn-primary ml-1">
+											<button
+												onClick={() =>
+													actions.ClientsAdd(this.state.inputs, this.props.history)
+												}
+												type="button"
+												className="btn btn-primary ml-1">
 												Guardar
 											</button>
 										</div>
@@ -156,3 +164,7 @@ export class ClientsAdd extends React.Component {
 		);
 	}
 }
+
+ClientsAdd.propTypes = {
+	history: PropTypes.any
+};

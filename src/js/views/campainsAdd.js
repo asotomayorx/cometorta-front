@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import layout from "../layout";
 import { Consumer } from "../store/appContext";
+import PropTypes from "prop-types";
 
 import "../../styles/demo.scss";
 
@@ -10,7 +11,10 @@ export class CampainsAdd extends React.Component {
 		super(props);
 		this.actionsContext = null;
 		this.state = {
-			inputs: {}
+			inputs: {
+				admin_id: 1,
+				client_id: 1
+			}
 		};
 	}
 
@@ -49,10 +53,10 @@ export class CampainsAdd extends React.Component {
 														type="text"
 														className="form-control"
 														id="formGroupExampleInput"
-														placeholder="DD/MM/AAAA"
+														placeholder="DD/MM/AA"
 														pattern="[A-Za-z]{25}"
 														onChange={this.onHandleChange}
-														name="Termino"
+														name="endDate"
 													/>
 												</div>
 												<div className="form-group col-md-4">
@@ -64,7 +68,7 @@ export class CampainsAdd extends React.Component {
 														placeholder="$100.000"
 														pattern="[0-9]{3}"
 														onChange={this.onHandleChange}
-														name="presupuesto"
+														name="budget"
 													/>
 												</div>
 												<div className="form-group col-md-4">
@@ -76,7 +80,7 @@ export class CampainsAdd extends React.Component {
 														placeholder="Desplegable"
 														pattern="[A-Za-z]{25}"
 														onChange={this.onHandleChange}
-														name="Comuna"
+														name="villages_id"
 													/>
 												</div>
 											</div>
@@ -92,7 +96,7 @@ export class CampainsAdd extends React.Component {
 														id="formGroupExampleInput"
 														placeholder="Número de días"
 														onChange={this.onHandleChange}
-														name="Anticipacion"
+														name="days_before"
 													/>
 												</div>
 
@@ -129,7 +133,7 @@ export class CampainsAdd extends React.Component {
 														id="comment"
 														onChange={this.onHandleChange}
 														value={this.state.value}
-														name="mensajeSMS"
+														name="sms"
 													/>
 												</div>
 												<div className="form-group col-md-6">
@@ -141,7 +145,7 @@ export class CampainsAdd extends React.Component {
 														placeholder="WYSIWYG"
 														onChange={this.onHandleChange}
 														value={this.state.value}
-														name="mensajeEMAIL"
+														name="mail"
 													/>
 												</div>
 											</div>
@@ -154,7 +158,9 @@ export class CampainsAdd extends React.Component {
 											<button
 												type="button"
 												className="btn btn-primary ml-1"
-												onClick={() => actions.saveDataCompany(this.state.inputs)}>
+												onClick={() =>
+													actions.campainsAdd(this.state.inputs, this.props.history)
+												}>
 												Guardar
 											</button>
 										</div>
@@ -175,3 +181,7 @@ export class CampainsAdd extends React.Component {
 		);
 	}
 }
+
+CampainsAdd.propTypes = {
+	history: PropTypes.any
+};
