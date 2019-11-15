@@ -4,6 +4,7 @@ import layout from "../layout";
 import { Consumer } from "../store/appContext";
 import PropTypes from "prop-types";
 
+import InputHTML from "../component/inputHtml";
 import "../../styles/demo.scss";
 
 export class CampainsAdd extends React.Component {
@@ -18,14 +19,29 @@ export class CampainsAdd extends React.Component {
 		};
 	}
 
+	componentDidMount() {}
 	// Guarda datos del input en el state
 	onHandleChange = e => {
-		this.setState({
-			inputs: {
-				...this.state.inputs,
-				[e.target.name]: e.target.value
-			}
-		});
+		if (e.target !== null) {
+			this.setState({
+				inputs: {
+					...this.state.inputs,
+					[e.target.name]: e.target.value
+				}
+			});
+		} else if (e.detail !== null) {
+			this.setState({
+				inputs: {
+					...this.state.inputs,
+					[e.detail.name]: e.detail.value
+				}
+			});
+		}
+	};
+	onHandleSave = e => {
+		// PENDIENTE: GENERAR UN COMPONENTE QUE GUARDE ESTO! https://es.reactjs.org/docs/refs-and-the-dom.html
+		e.preventDefault();
+		console.log("GUARDAR", this.state.inputs);
 	};
 
 	render() {
@@ -169,7 +185,7 @@ export class CampainsAdd extends React.Component {
 									<br />
 									<br />
 
-									<Link to="/login">
+									<Link to="/">
 										<button className="btn btn-primary">Volver a Casa</button>
 									</Link>
 								</div>

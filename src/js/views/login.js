@@ -95,6 +95,7 @@ export class Home extends React.Component {
 															className="btn btn-primary">
 															Login
 														</button>
+														&nbsp;
 														<button
 															type="button"
 															onClick={() => actions.register(this.state)}

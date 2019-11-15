@@ -18,14 +18,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
-
 				//we have to loop the entire demo array to look for the respective index
 				//and change its color
 				const demo = store.demo.map((elm, i) => {
 					if (i === index) elm.background = color;
 					return elm;
 				});
-
 				//reset the global store
 				setStore({ demo: demo });
 			},
@@ -35,22 +33,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 			empresa: nombrEmpresa => {
 				alert("Coloca nombre " + nombrEmpresa);
 			},
-
 			saveDataCompany: data => {
 				console.log("hola");
-
 				fetch("http://localhost:3000/campainsAdd", {
 					method: "POST",
 					body: JSON.stringify(data)
 				}).then(resp => {
 					return res.json();
 				});
-
 				console.log("SAVE DATA COMPANY CONTEXT", data);
 			},
 			personas: () => {
 				console.log("hola");
-
 				fetch("http://localhost:3000/persons")
 					.then(res => {
 						return res.json();
@@ -61,7 +55,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			login: data => {
 				console.log(data);
-
 				fetch("http://localhost:3000/login", {
 					method: "POST",
 					body: JSON.stringify(data),
@@ -89,7 +82,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			register: data => {
 				console.log(data);
-
 				fetch("http://localhost:3000/register", {
 					method: "POST",
 					body: JSON.stringify(data),
@@ -182,5 +174,4 @@ const getState = ({ getStore, getActions, setStore }) => {
 		}
 	};
 };
-
 export default getState;

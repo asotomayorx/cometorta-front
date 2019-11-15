@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/demo.scss";
+
 import { Consumer } from "../store/appContext";
 import PropTypes from "prop-types";
 
@@ -24,6 +24,11 @@ export class ClientsAdd extends React.Component {
 			}
 		});
 	};
+	handleSubmit(e) {
+		e.preventDefault();
+
+		fetch();
+	}
 
 	render() {
 		return (
@@ -152,7 +157,7 @@ export class ClientsAdd extends React.Component {
 									<br />
 									<br />
 
-									<Link to="/login">
+									<Link to="/">
 										<button className="btn btn-primary">Volver a Casa</button>
 									</Link>
 								</div>
