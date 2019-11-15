@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/demo.scss";
 import { Consumer } from "../store/appContext";
+import PropTypes from "prop-types";
 
 export class ClientsAdd extends React.Component {
 	constructor(props) {
@@ -138,7 +139,9 @@ export class ClientsAdd extends React.Component {
 												Volver a Clientes
 											</Link>
 											<button
-												onClick={() => actions.ClientsAdd(this.state.inputs)}
+												onClick={() =>
+													actions.ClientsAdd(this.state.inputs, this.props.history)
+												}
 												type="button"
 												className="btn btn-primary ml-1">
 												Guardar
@@ -161,3 +164,7 @@ export class ClientsAdd extends React.Component {
 		);
 	}
 }
+
+ClientsAdd.propTypes = {
+	history: PropTypes.any
+};

@@ -42,21 +42,15 @@ export class Campains extends React.Component {
 												</h2>
 											</div>
 											<div className="col-sm-6">
-												<a
-													href="#addEmployeeModal"
-													className="btn btn-success"
-													data-toggle="modal">
+												<Link to="/campainsAdd" className="btn btn-success" data-toggle="modal">
 													<i
 														className="material-icons"
 														data-toggle="tooltip"
 														title=""
 														data-original-title="Edit"
-													/>{" "}
-													<Link to="/campainsAdd">
-														<span>Agregar nueva Campaña</span>
-													</Link>
-													<span />
-												</a>
+													/>
+													<span>Agregar nueva Campaña</span>
+												</Link>
 											</div>
 										</div>
 									</div>

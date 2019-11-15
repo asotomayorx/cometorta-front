@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import layout from "../layout";
 import { Consumer } from "../store/appContext";
+import PropTypes from "prop-types";
 
 import "../../styles/demo.scss";
 
@@ -157,7 +158,9 @@ export class CampainsAdd extends React.Component {
 											<button
 												type="button"
 												className="btn btn-primary ml-1"
-												onClick={() => actions.campainsAdd(this.state.inputs)}>
+												onClick={() =>
+													actions.campainsAdd(this.state.inputs, this.props.history)
+												}>
 												Guardar
 											</button>
 										</div>
@@ -178,3 +181,7 @@ export class CampainsAdd extends React.Component {
 		);
 	}
 }
+
+CampainsAdd.propTypes = {
+	history: PropTypes.any
+};

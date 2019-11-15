@@ -3,6 +3,7 @@ import "../../styles/home.scss";
 import { Link } from "react-router-dom";
 import layout from "../layout";
 import { Consumer } from "../store/appContext";
+import PropTypes from "prop-types";
 
 export class Clients extends React.Component {
 	constructor(props) {
@@ -43,21 +44,15 @@ export class Clients extends React.Component {
 												</h2>
 											</div>
 											<div className="col-sm-6">
-												<a
-													href="#addEmployeeModal"
-													className="btn btn-success"
-													data-toggle="modal">
+												<Link to="/clientsAdd" className="btn btn-success" data-toggle="modal">
 													<i
 														className="material-icons"
 														data-toggle="tooltip"
 														title=""
 														data-original-title="Edit"
-													/>{" "}
-													<Link to="/clientsAdd">
-														<span>Agregar nuevo Cliente</span>
-													</Link>
-													<span />
-												</a>
+													/>
+													<span>Agregar nuevo Cliente</span>
+												</Link>
 											</div>
 										</div>
 									</div>
@@ -92,14 +87,16 @@ export class Clients extends React.Component {
 																<span>Editar</span>
 															</a>
 															&nbsp;
-															<a
-																onClick={() => actions.getCampaigns(1)}
-																href="#"
+															<button
+																onClick={() =>
+																	actions.getCampaigns(item.id, this.props.history)
+																}
+																type="button"
 																className="btn btn-danger"
 																data-toggle="modal">
-																<i className="material-icons ml-auto"></i>{" "}
+																<i className="material-icons ml-auto"></i>
 																<span>Campañas</span>
-															</a>
+															</button>
 														</td>
 													</tr>
 												);
@@ -115,3 +112,7 @@ export class Clients extends React.Component {
 		);
 	}
 }
+
+Clients.propTypes = {
+	history: PropTypes.any
+};

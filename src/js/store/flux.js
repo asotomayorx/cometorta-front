@@ -121,7 +121,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log("clients", response);
 					});
 			},
-			ClientsAdd: data => {
+			ClientsAdd: (data, router) => {
 				console.log("data", data);
 				fetch("http://localhost:3000/clients", {
 					method: "POST",
@@ -137,11 +137,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => {
 						getActions().getClients();
 						alert("Se agregó el nuevo cliente ", response.name);
-						document.location.href = "clients/";
+						router.push("clients/");
 						console.log("nuevo cliente", response);
 					});
 			},
-			getCampaigns: client_id => {
+			getCampaigns: (client_id, router) => {
 				console.log("data", client_id);
 				fetch("http://localhost:3000/campaigns/" + client_id, {
 					method: "GET",
@@ -156,10 +156,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => {
 						setStore({ campaigns: response });
 						console.log("campa;as", getStore().campaigns);
-						document.location.href = "campains/";
+						router.push("/campains/");
 					});
 			},
-			campainsAdd: data => {
+			campainsAdd: (data, router) => {
 				console.log("data", data);
 				fetch("http://localhost:3000/campainsAdd", {
 					method: "POST",
@@ -175,7 +175,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => {
 						getActions().getCampaigns(response.client_id);
 						alert("Se agregó la nueva campaña hasta el ", response.endDate);
-						document.location.href = "campains/";
+						router.push("/campains/");
 						console.log("nueva campana ", response);
 					});
 			}
