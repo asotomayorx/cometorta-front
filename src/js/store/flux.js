@@ -2,7 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			token: "",
-			clients: []
+			clients: [],
+			campaigns: []
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -135,7 +136,47 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(response => {
 						getActions().getClients();
+						alert("Se agregó el nuevo cliente ", response.name);
+						document.location.href = "clients/";
 						console.log("nuevo cliente", response);
+					});
+			},
+			getCampaigns: client_id => {
+				console.log("data", client_id);
+				fetch("http://localhost:3000/campaigns/" + client_id, {
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => {
+						console.log("hola");
+						return res.json();
+					})
+					.then(response => {
+						setStore({ campaigns: response });
+						console.log("campa;as", getStore().campaigns);
+						document.location.href = "campains/";
+					});
+			},
+			campainsAdd: data => {
+				console.log("data", data);
+				fetch("http://localhost:3000/campainsAdd", {
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => {
+						//console.log("hola");
+						return res.json();
+					})
+					.then(response => {
+						getActions().getCampaigns(response.client_id);
+						alert("Se agregó la nueva campaña hasta el ", response.endDate);
+						document.location.href = "campains/";
+						console.log("nueva campana ", response);
 					});
 			}
 		}

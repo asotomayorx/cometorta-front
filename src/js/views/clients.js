@@ -93,11 +93,12 @@ export class Clients extends React.Component {
 															</a>
 															&nbsp;
 															<a
-																href="#deleteEmployeeModal"
+																onClick={() => actions.getCampaigns(1)}
+																href="#"
 																className="btn btn-danger"
 																data-toggle="modal">
 																<i className="material-icons ml-auto"></i>{" "}
-																<span>Borrar</span>
+																<span>Campañas</span>
 															</a>
 														</td>
 													</tr>
