@@ -29,6 +29,9 @@ export class Clients extends React.Component {
 			<>
 				<Consumer>
 					{({ store, actions }) => {
+						if (!store.token) {
+							return alert("usuario no registrado");
+						}
 						return (
 							<div className="container">
 								<div className="table-wrapper">
@@ -43,7 +46,7 @@ export class Clients extends React.Component {
 													<b> Clientes</b>
 												</h2>
 											</div>
-											<div className="col-sm-6">
+											<div className="col-sm-3">
 												<Link to="/clientsAdd" className="btn btn-success" data-toggle="modal">
 													<i
 														className="material-icons"
@@ -53,6 +56,15 @@ export class Clients extends React.Component {
 													/>
 													<span>Agregar nuevo Cliente</span>
 												</Link>
+											</div>
+											<div className="col-sm-3">
+												<button
+													onClick={() => actions.cerrarSesion(this.props.history)}
+													type="button"
+													className="btn btn-danger"
+													data-toggle="modal">
+													<span>Cerrar sesion</span>
+												</button>
 											</div>
 										</div>
 									</div>

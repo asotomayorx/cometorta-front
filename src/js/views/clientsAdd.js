@@ -42,10 +42,6 @@ export class ClientsAdd extends React.Component {
 										</div>
 
 										<div className="card-body">
-											<div className="alert alert-danger" role="alert">
-												Faltan algunos campos.
-											</div>
-
 											<div className="form-row">
 												<div className="form-group col-md-4">
 													<label htmlFor="formGroupExampleInput">Nombre</label>

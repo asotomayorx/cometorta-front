@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/home.scss";
 import { Consumer } from "../store/appContext";
 import { SSL_OP_MSIE_SSLV2_RSA_PADDING } from "constants";
+import PropTypes from "prop-types";
 
 export class Home extends React.Component {
 	constructor(props) {
@@ -51,7 +52,7 @@ export class Home extends React.Component {
 												</nav>
 												<form>
 													<div className="form-group">
-														<label>Usuario</label>
+														<label> Email de Usuario</label>
 														<input
 															type="email"
 															className="form-control"
@@ -80,25 +81,22 @@ export class Home extends React.Component {
 															name="contrasena"
 														/>
 													</div>
-													<div className="form-group form-check">
-														<input
-															type="checkbox"
-															className="form-check-input"
-															id="exampleCheck1"
-														/>
-														<label className="form-check-label">Recordar mi sesión?</label>
-													</div>
+
 													<div className="text-center">
 														<button
 															type="button"
-															onClick={() => actions.login(this.state)}
+															onClick={() =>
+																actions.login(this.state, this.props.history)
+															}
 															className="btn btn-primary">
 															Login
 														</button>
 														&nbsp;
 														<button
 															type="button"
-															onClick={() => actions.register(this.state)}
+															onClick={() =>
+																actions.register(this.state, this.props.history)
+															}
 															className="btn btn-primary">
 															Register
 														</button>
@@ -117,3 +115,7 @@ export class Home extends React.Component {
 		);
 	}
 }
+
+Home.propTypes = {
+	history: PropTypes.any
+};

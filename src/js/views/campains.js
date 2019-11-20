@@ -77,22 +77,17 @@ export class Campains extends React.Component {
 																value="1"
 															/>
 														</td>
-														<td>{item.village_id}</td>
+														<td>{item.villages_id == 1 ? "Curicó" : "Comuna"}</td>
 														<td>cliente</td>
 														<td>{item.endDate}</td>
 														<td>{item.budget}</td>
 														<td>
 															<a
-																href="#editEmployeeModal"
-																className="edit"
+																href="#deleteEmployeeModal"
+																className="btn btn-success"
 																data-toggle="modal">
-																<i
-																	className="material-icons"
-																	data-toggle="tooltip"
-																	title=""
-																	data-original-title="Edit">
-																	
-																</i>
+																<i className="material-icons ml-auto"></i>{" "}
+																<span>Editar</span>
 															</a>
 														</td>
 													</tr>

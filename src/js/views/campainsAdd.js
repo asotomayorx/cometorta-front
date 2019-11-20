@@ -58,10 +58,6 @@ export class CampainsAdd extends React.Component {
 										</div>
 
 										<div className="card-body">
-											<div className="alert alert-danger" role="alert">
-												Faltan algunos campos.
-											</div>
-
 											<div className="form-row">
 												<div className="form-group col-md-4">
 													<label htmlFor="formGroupExampleInput">Fecha de Termino</label>
@@ -69,7 +65,7 @@ export class CampainsAdd extends React.Component {
 														type="text"
 														className="form-control"
 														id="formGroupExampleInput"
-														placeholder="AA/MM/DD"
+														placeholder="19/11/21"
 														pattern="[A-Za-z]{25}"
 														onChange={this.onHandleChange}
 														name="endDate"
@@ -88,16 +84,19 @@ export class CampainsAdd extends React.Component {
 													/>
 												</div>
 												<div className="form-group col-md-4">
-													<label htmlFor="formGroupExampleInput">Comuna</label>
-													<input
-														type="text"
-														className="form-control"
-														id="formGroupExampleInput"
-														placeholder="Desplegable"
-														pattern="[A-Za-z]{25}"
+													<div className="input-group-prepend">
+														<label htmlFor="inputGroupSelect01">Comuna</label>
+													</div>
+													<select
 														onChange={this.onHandleChange}
 														name="villages_id"
-													/>
+														className="custom-select"
+														id="inputGroupSelect01">
+														<option selected>Elige la comuna...</option>
+														<option value="1">Curicó</option>
+														<option value="2">Providencia</option>
+														<option value="3">Santiago</option>
+													</select>
 												</div>
 											</div>
 
@@ -117,35 +116,25 @@ export class CampainsAdd extends React.Component {
 												</div>
 
 												<div className="form-group col-md-4">
-													<label htmlFor="formGroupExampleInput">Número de SMS</label>
+													<label htmlFor="formGroupExampleInput">
+														Día de inicio de campaña
+													</label>
 													<input
 														type="text"
 														className="form-control"
 														id="formGroupExampleInput"
-														placeholder="Limite diario"
+														placeholder="19/11/21"
 														pattern="[A-Za-z]{25}"
 														onChange={this.onHandleChange}
 														name="SMS"
 													/>
 												</div>
 
-												<div className="form-group col-md-4">
-													<label htmlFor="formGroupExampleInput">Número de Correos</label>
-													<input
-														type="text"
-														className="form-control"
-														id="formGroupExampleInput"
-														placeholder="Limite diario"
-														pattern="[0-9]{11}"
-														onChange={this.onHandleChange}
-														name="Correo"
-													/>
-												</div>
 												<div className="form-group col-md-6">
 													<label htmlFor="formGroupExampleInput">Mensaje SMS</label>
 													<textarea
 														className="form-control"
-														rows="5"
+														rows="9"
 														id="comment"
 														onChange={this.onHandleChange}
 														value={this.state.value}
@@ -154,11 +143,7 @@ export class CampainsAdd extends React.Component {
 												</div>
 												<div className="form-group col-md-6">
 													<label htmlFor="formGroupExampleInput">Mensaje Email</label>
-													<textarea
-														className="form-control"
-														rows="5"
-														id="comment"
-														placeholder="WYSIWYG"
+													<InputHTML
 														onChange={this.onHandleChange}
 														value={this.state.value}
 														name="mail"
@@ -168,9 +153,9 @@ export class CampainsAdd extends React.Component {
 										</div>
 
 										<div className="card-footer text-right">
-											<button type="button" className="btn btn-secondary">
+											<Link to="/campains" className="btn btn-secondary">
 												Volver
-											</button>
+											</Link>
 											<button
 												type="button"
 												className="btn btn-primary ml-1"

@@ -53,8 +53,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 						console.log(response);
 					});
 			},
-			login: data => {
-				console.log(data);
+			login: (data, router) => {
+				if (!data.username.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+					return alert("Por favor ingresa un email correctamente");
+				}
+
 				fetch("http://localhost:3000/login", {
 					method: "POST",
 					body: JSON.stringify(data),
@@ -73,14 +76,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 							setStore({ token: response.token });
 							const store = getStore();
 							console.log(store.token);
-							document.location.href = "clients/";
+							router.push("clients/");
 						} else {
 							console.log(response);
 							alert(response.ERROR);
 						}
 					});
 			},
-			register: data => {
+			register: (data, router) => {
+				if (!data.username.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+					return alert("Por favor ingresa un email correctamente");
+				}
+
 				console.log(data);
 				fetch("http://localhost:3000/register", {
 					method: "POST",
@@ -94,8 +101,17 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return res.json();
 					})
 					.then(response => {
-						console.log("response", response);
+						if (response.username) {
+							alert("Se registró al usuario " + response.username);
+							console.log("response", response);
+						} else {
+							alert(response.ERROR);
+						}
 					});
+			},
+			cerrarSesion: router => {
+				setStore({ token: null });
+				router.push("/");
 			},
 			getClients: () => {
 				fetch("http://localhost:3000/clients", {
@@ -114,6 +130,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			ClientsAdd: (data, router) => {
+				console.log(data);
+				if (
+					data.name == "" ||
+					data.name == undefined ||
+					data.rut == "" ||
+					data.rut == undefined ||
+					data.direccion == "" ||
+					data.direccion == undefined ||
+					data.website == "" ||
+					data.website == undefined ||
+					data.email == "" ||
+					data.email == undefined ||
+					data.phone == "" ||
+					data.phone == undefined
+				) {
+					return alert("Faltan datos por rellenar");
+				}
+				if (isNaN(data.phone)) {
+					return alert("Ingresa un telefono correcto");
+				}
+				if (isNaN(data.rut) || data.rut > 1000000000 || data.rut < 100000000) {
+					return alert("Ingresa un Rut correcto");
+				}
+				if (!data.email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
+					return alert("Por favor ingresa un email correctamente");
+				}
+
 				console.log("data", data);
 				fetch("http://localhost:3000/clients", {
 					method: "POST",
@@ -127,10 +170,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 						return res.json();
 					})
 					.then(response => {
-						getActions().getClients();
-						alert("Se agregó el nuevo cliente ", response.name);
-						router.push("clients/");
-						console.log("nuevo cliente", response);
+						if (response.ERROR) {
+							return alert(response.ERROR);
+						} else {
+							getActions().getClients();
+							alert("Se agregó el nuevo cliente ", response.name);
+							router.push("clients/");
+							console.log("nuevo cliente", response);
+						}
 					});
 			},
 			getCampaigns: (client_id, router) => {
@@ -152,7 +199,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			campainsAdd: (data, router) => {
+				data.sms = "no hay sms aun";
 				console.log("data", data);
+				if (
+					data.budget == "" ||
+					data.budget == undefined ||
+					data.villages_id == "" ||
+					data.villages_id == undefined ||
+					data.mail == "" ||
+					data.mail == undefined ||
+					data.days_before == "" ||
+					data.days_before == undefined ||
+					data.endDate == "" ||
+					data.endDate == undefined
+				) {
+					return alert("Faltan datos por rellenar");
+				}
+				if (data.endDate.match(/^\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/i)) {
+					return alert("Ingresar fecha de termino en formato correcto");
+				}
+
 				fetch("http://localhost:3000/campainsAdd", {
 					method: "POST",
 					body: JSON.stringify(data),
@@ -167,7 +233,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => {
 						getActions().getCampaigns(response.client_id, router);
 						alert("se agregó " + response.endDate);
-						console.log(response.endDate);
+
 						getActions().activateCampaign(response);
 					});
 			},
