@@ -180,6 +180,38 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 					});
 			},
+			deleteClient: id => {
+				fetch("http://localhost:3000/clients/" + id, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => {
+						return res.json();
+					})
+					.then(response => {
+						alert(response);
+						getActions().getClients();
+						alert("Cliente borrardo");
+					});
+			},
+			deleteCampaign: (id, cliente_id, router) => {
+				fetch("http://localhost:3000/campaigns/" + id, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => {
+						return res.json();
+					})
+					.then(response => {
+						alert(response);
+						getActions().getCampaigns(cliente_id, router);
+						alert("Campaña borrarda");
+					});
+			},
 			getCampaigns: (client_id, router) => {
 				console.log("data", client_id);
 				fetch("http://localhost:3000/campaigns/" + client_id, {
@@ -218,7 +250,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (data.endDate.match(/^\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/i)) {
 					return alert("Ingresar fecha de termino en formato correcto");
 				}
- 
+
 				fetch("http://localhost:3000/campainsAdd", {
 					method: "POST",
 					body: JSON.stringify(data),

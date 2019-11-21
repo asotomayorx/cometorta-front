@@ -3,6 +3,7 @@ import "../../styles/home.scss";
 import { Link } from "react-router-dom";
 import layout from "../layout";
 import { Consumer } from "../store/appContext";
+import PropTypes from "prop-types";
 
 export class Campains extends React.Component {
 	constructor(props) {
@@ -82,13 +83,20 @@ export class Campains extends React.Component {
 														<td>{item.endDate}</td>
 														<td>{item.budget}</td>
 														<td>
-															<a
-																href="#deleteEmployeeModal"
-																className="btn btn-success"
+															<button
+																onClick={() =>
+																	actions.deleteCampaign(
+																		item.id,
+																		item.client_id,
+																		this.props.history
+																	)
+																}
+																type="button"
+																className="btn btn-danger"
 																data-toggle="modal">
 																<i className="material-icons ml-auto"></i>{" "}
-																<span>Editar</span>
-															</a>
+																<span>Borrar</span>
+															</button>
 														</td>
 													</tr>
 												);
@@ -113,3 +121,6 @@ export class Campains extends React.Component {
 		);
 	}
 }
+Campains.propTypes = {
+	history: PropTypes.any
+};

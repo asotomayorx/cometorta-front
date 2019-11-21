@@ -91,23 +91,26 @@ export class Clients extends React.Component {
 														<td>{item.direccion}</td>
 														<td>{item.phone}</td>
 														<td>
-															<a
-																href="#deleteEmployeeModal"
-																className="btn btn-success"
-																data-toggle="modal">
-																<i className="material-icons ml-auto"></i>{" "}
-																<span>Editar</span>
-															</a>
-															&nbsp;
 															<button
 																onClick={() =>
 																	actions.getCampaigns(item.id, this.props.history)
 																}
 																type="button"
-																className="btn btn-danger"
+																className="btn btn-success"
 																data-toggle="modal">
 																<i className="material-icons ml-auto"></i>
 																<span>Campañas</span>
+															</button>
+															&nbsp;
+															<button
+																onClick={() =>
+																	actions.deleteClient(item.id, this.props.history)
+																}
+																type="button"
+																className="btn btn-danger"
+																data-toggle="modal">
+																<i className="material-icons ml-auto"></i>
+																<span>Borrar</span>
 															</button>
 														</td>
 													</tr>
